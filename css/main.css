@@ -13,13 +13,13 @@ body {
 }
 
 .container{
-	width: 100%;
+	max-width: 1200px;
+	width: 90%;
 	margin: 0 auto;
 	display: flex;
-	flex-flow: column wrap;
 	justify-content: center;
 	align-items: center;
-	height: auto;
+	flex-flow: row wrap;
 }
 
 h1,
@@ -48,37 +48,32 @@ p {
 	line-height: 1.3125em;
 }
 
-header, .top-section, .bottom-section, footer {
+header, .top-section, footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-flow: column wrap;
+	flex-flow: row wrap;
 }
 
 /***** HEADER *****/
 /*The widths are in a percentage!*/
 header {
-	height: auto;
 	margin: 0 auto;
-	width: 80%;
+	width: 100%;
 }
 
 header h1 {
 	margin: 0;
 	padding: 1em 1.5em;
-	display: flex;
-}
-
-.border {
-	border-bottom: 3px solid #77a466;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
 }
 
 header h1 span {
 	color: #77a466;
+}
+
+.border {
+	border-bottom: 3px solid #77a466;
+	width: 100%;
 }
 
 header nav {
@@ -98,10 +93,10 @@ header nav ul li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-flow: column wrap;
+	flex-direction: column;
 }
 
-header nav ul li a{
+header nav ul li a {
 	text-decoration: none;
 	color:#77a466;
 }
@@ -116,9 +111,9 @@ header nav ul li a{
 
 .main-image, .main-title {
 	height: auto;
-	width: 80%;
+	width: 100%;
 	display: flex;
-	flex-flow: column wrap;
+	flex-flow: row wrap;
 }
 
 .main-image {
@@ -127,7 +122,6 @@ header nav ul li a{
 }
 
 .main-image img {
-	display: flex;
 	width: 100%;
 	border-top: 3px solid #77a466;
 	border-bottom: 3px solid #77a466;
@@ -140,7 +134,7 @@ header nav ul li a{
 
 .main-title h3 {
 	text-align: left;
-	padding: 0.3125em 0;
+	padding-top: 0.3125em;
 	color: #77a466;
 }
 
@@ -151,16 +145,23 @@ header nav ul li a{
 	line-height: 1.5625em;
 }
 
+.bottom-section {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
 .section-one,
 .section-two,
 .section-three {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: flex-start;
-	flex-flow: column wrap;
+	flex-direction: column;
 	height: auto;
 	border-top: 1px solid #eee;
-	width: 80%;
+	width: 100%;
 }
 
 .menu {
@@ -168,21 +169,14 @@ header nav ul li a{
 	padding: 0;
 }
 
-.menu, .reviews, .address {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-flow: column wrap;
-}
-
 .menu li {
 	font-size: 1em;
 	padding: 0.675em 0;
 	color:#77a466;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: flex-start;
-	flex-flow: column wrap;
+	flex-direction: column;
 }
 
 .reviews {
@@ -204,7 +198,7 @@ footer {
 	margin: 0 auto;
 	clear: both;
 	text-align: center;
-	width: 80%;
+	width: 100%;
 }
 
 footer span {
@@ -234,20 +228,12 @@ footer span {
 	}
 
 	p {
-		font-size: 1.1em;
+		font-size: 1em;
 		padding: 0 1em;
-	}
-
-	header {
-		width: 90%;
 	}
 
 	header nav ul li {
 		font-size: 1.35em;
-	}
-
-	.main-image, .main-title {
-		width: 90%;
 	}
 
 	.main-title p {
@@ -256,37 +242,30 @@ footer span {
 
 	.bottom-section {
 		flex-direction: row;
-		flex-basis: 90%;
-		}
+	}
 
 	.section-one,
 	.section-two,
 	.section-three {
-		flex-direction: row;
-		flex-basis: 30%;
-		align-self: flex-start;
-		align-items: flex-start;
-		justify-content: flex-start;
+		width: 30%;
 	}
 
 	.section-two {
 		border-left: 1px solid #eee;
 		border-right: 1px solid #eee;
+		flex-grow: 1;
 	}
 
-	.section-one h4,
-	.section-two h4,
-	.section-three h4 {
-		justify-content: flex-start;
-		align-items: flex-start;
-		}
-
-	.section-one h4{
-		padding-left: 1rem;
+	.section-one h4, .section-two h4, .section-three h4 {
+		margin-bottom: 0;
 	}
 
 	.section-two h4, .section-three h4 {
-		padding: 0 1rem;
+		padding-left: 1.25rem;
+	}
+
+	.menu li {
+		font-size: 1.1rem;
 	}
 
 	.reviews {
@@ -295,15 +274,6 @@ footer span {
 
 	.address {
 		font-size: 1.1rem;
-	}
-
-	.menu li {
-		font-size: 1.1rem;
-		padding-left: 1rem;
-	}
-
-	footer {
-		width: 90%;
 	}
 
 	footer h4 {
@@ -315,7 +285,6 @@ footer span {
 	}
 }
 
-
 /***** DESKTOPS *****/
 @media (min-width: 1200px) {
 	h4 {
@@ -326,83 +295,50 @@ footer span {
 		padding: 0 2.5em;
 	}
 
-	.top-section, .bottom-section, footer {
-		flex-basis: 90%;
-		flex-flow: row wrap;
-	}
-
 	header {
+		justify-content: space-between;
+		align-items: center;
 		flex-flow: row nowrap;
-		width: 90%;
-		justify-content: flex-start;
-		align-items: flex-start;
 	}
 
 	header h1 {
-		justify-content: flex-start;
-		align-items: flex-start;
-		padding: 1.2em 0;
+		padding: 0 0;
 	}
 
 	.border {
 		border: none;
-	}
-
-	header nav {
-		justify-content: flex-start;
-		align-items: flex-start;
+		width: 0;
 	}
 
 	header nav ul {
 		display: flex;
+		justify-content: space-between;
 	}
 
-	header nav ul li {
-		justify-content: flex-start;
-		align-items: flex-start;
-		flex-flow: row nowrap;
-	}
-
-	.main-image, .main-title {
-		width: 90%;
+	.bottom-section {
+		flex-direction: row;
 	}
 
 	.section-one,
 	.section-two,
 	.section-three {
-		flex-direction: row;
-		flex-basis: 30%;
+		width: 30%;
 		align-self: flex-start;
-		align-items: flex-start;
-		justify-content: flex-start;
-		width: 90%;
 		padding-bottom: 1rem;
 	}
 
 	.section-two {
 		border-left: 1px solid #eee;
 		border-right: 1px solid #eee;
+		flex-grow: 1;
 	}
 
-	.section-one h4 {
-		padding: 1em 0;
+	.section-one h4, .section-two h4, .section-three h4 {
+		margin-bottom: 0;
 	}
 
-	.section-two h4,
-	.section-three h4 {
-		padding: 1em 2.5em;
-		justify-content: flex-start;
-		align-items: flex-start;
-		}
-
-	.menu, .reviews, .address {
-			display: flex;
-			justify-content: flex-start;
-			align-items: flex-start;
-		}
-
-	footer {
-		width: 90%;
+	.section-two h4, .section-three h4 {
+		padding-left: 2.6em;
 	}
 
 	footer span {
